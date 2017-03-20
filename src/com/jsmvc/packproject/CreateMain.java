@@ -85,6 +85,14 @@ public class CreateMain {
 			HashMap<String, String> key = new HashMap<String, String>();
 			for(int j=0; j<childList.length; j++){
 				String jsStr = childList[j];
+				if(jsStr != null && (jsStr.toUpperCase().indexOf("HTTP://") == 1 || jsStr.toUpperCase().indexOf("HTTPS://") == 1)){
+					if(child.equals("[")){
+						child += jsStr;
+					}else{
+						child += ","+jsStr;
+					}
+					continue;
+				}
 				String[] jsDir = jsStr.split("/");
 				if(jsDir.length>2){
 					String keyStr = jsDir[0];

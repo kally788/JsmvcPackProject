@@ -56,8 +56,13 @@ public class CreateExtend {
 				
 				JSONArray newJs = new JSONArray();
 				for(int j=0; j<old.length; j++){
-					if(old[j].split(config.getDirExtJs())[1].split("/").length <= 2){
-						String[] name = old[j].split("/");
+					String jsURL = old[j];
+					if(jsURL != null && (jsURL.toUpperCase().indexOf("HTTP://") == 0 || jsURL.toUpperCase().indexOf("HTTPS://") == 0)){
+						newJs.add(jsURL);
+						continue;
+					}
+					if(jsURL.split(config.getDirExtJs())[1].split("/").length <= 2){
+						String[] name = jsURL.split("/");
 						String prefix = name[name.length-1].substring(0,name[name.length-1].lastIndexOf("."));
 						newJs.add(route+"/"+config.getDirExtJs()+"/"+prefix+".min.js");
 					}
