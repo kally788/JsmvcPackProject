@@ -4,3 +4,6 @@ src/.DS_Store
 .DS_Store
 JsmvcPackProject-v1.0.jar
 JsmvcPackProject-v1.0.jar
+/bin/
+.classpath
+.project
