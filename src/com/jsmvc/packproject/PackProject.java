@@ -130,9 +130,12 @@ public class PackProject {
 			conf.setVersion(args[0]);//项目版本
 		}
 		if(args.length > 1 && !args[1].equals("")){
-			conf.setInputDir(args[1]);//项目目录
+			conf.setName(args[1]);//项目文件名
 		}
 		if(args.length > 2 && !args[2].equals("")){
+			conf.setInputDir(args[1]);//项目目录
+		}
+		if(args.length > 3 && !args[3].equals("")){
 			conf.setOutputDir(args[2]);//输出目录
 		}
 		PackProject.make(conf);
